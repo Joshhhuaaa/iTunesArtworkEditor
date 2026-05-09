@@ -8,7 +8,7 @@ iTunes Artwork Editor is a utility for managing artwork stored in Apple's propri
   - Artworks from albums in `.itc2` format may also appear. You can extract or replace their embedded artwork, but the album name currently doesn't get retrieved using the iTunes Search API.
 
 > [!IMPORTANT]
-> It is strongly recommended to export all artwork before modifying any `.itc2` files. Original artwork may be lost permanently if Apple's servers have updated it and you have an older version. To export, go to `File` > `Export All Artwork…`, and choose a folder to save the files.
+> It is strongly recommended to export all artwork before modifying any `.itc2` files. Original artwork may be lost permanently if Apple's servers have updated it and you have an older version. To export, go to `File` > `Export All Artwork…`, and choose a folder to save the artwork.
 >
 > <img width="260" height="178" alt="Export All Artwork" src="https://github.com/user-attachments/assets/f55d3ed2-f75f-42cc-9697-65453d435fb1"/>
 
