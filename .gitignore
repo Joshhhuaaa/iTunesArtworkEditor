@@ -1,0 +1,23 @@
+# Visual Studio
+.vs/
+*.csproj.user
+
+# VS Code
+.vscode/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Windows thumbnail cache
+Thumbs.db
