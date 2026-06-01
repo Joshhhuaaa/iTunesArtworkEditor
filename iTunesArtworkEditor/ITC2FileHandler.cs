@@ -301,12 +301,12 @@ namespace iTunesArtworkEditor
     /// </summary>
     public class ITC2FileInfo
     {
-        public string FilePath { get; set; }
-        public string FileName { get; set; }
+        public string FilePath { get; set; } = string.Empty;
+        public string FileName { get; set; } = string.Empty;
         public long FileSize { get; set; }
         public long ImageSize { get; set; }
         public bool IsValid { get; set; }
-        public string ImageType { get; set; }
+        public string ImageType { get; set; } = string.Empty;
         public string ArtworkKind { get; set; } = "Unknown";
     }
 }

@@ -722,12 +722,21 @@ namespace iTunesArtworkEditor
 
             try
             {
+                int deletedIndex = currentITC2Files.IndexOf(selectedFilePath);
+                string? nextPath = deletedIndex > 0
+                    ? currentITC2Files[deletedIndex - 1]
+                    : currentITC2Files.Count > 1 ? currentITC2Files[1] : null;
+
+                int savedTopIndex = listBox_ITC2Files.TopIndex;
+
                 File.Delete(selectedFilePath);
                 allValidFiles.Remove(selectedFilePath);
                 _pendingImageData = null;
                 saveToolStripMenuItem.Enabled = false;
-                selectedFilePath = null;
+                selectedFilePath = nextPath;
                 ApplyFilter();
+                int adjustedTopIndex = deletedIndex < savedTopIndex ? savedTopIndex - 1 : savedTopIndex;
+                listBox_ITC2Files.TopIndex = Math.Max(0, adjustedTopIndex);
                 UpdateStatus("File deleted");
             }
             catch (Exception ex)
@@ -848,9 +857,9 @@ namespace iTunesArtworkEditor
                 if (Clipboard.ContainsFileDropList())
                 {
                     string[] imageExts = { ".jpg", ".jpeg", ".png" };
-                    foreach (string f in Clipboard.GetFileDropList())
+                    foreach (string? f in Clipboard.GetFileDropList())
                     {
-                        if (imageExts.Contains(Path.GetExtension(f), StringComparer.OrdinalIgnoreCase))
+                        if (f != null && imageExts.Contains(Path.GetExtension(f), StringComparer.OrdinalIgnoreCase))
                         { imageData = File.ReadAllBytes(f); break; }
                     }
                 }
